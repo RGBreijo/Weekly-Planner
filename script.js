@@ -45,8 +45,8 @@ newTaskCard.appendChild(newTaskButtonContainer);
 
 
 
+
 //////////////////////////////// testing ////////////////////////////////
 
 let monday = document.querySelector("#monday");
 monday.appendChild(newTaskCard);
-console.log(newTaskCard);
