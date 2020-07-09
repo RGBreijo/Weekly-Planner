@@ -1,11 +1,19 @@
 
 
+
+// ADDITION BUTTON 
     let addTaskCardBtn = Array.from(document.querySelectorAll(".add-btn"));
    
     for(i = 0; i < addTaskCardBtn.length; i++)
     {
         addTaskCardBtn[i].addEventListener('click', addTaskCard);
     }
+
+
+// REMOVE BUTTON 
+
+
+
 
 
 
@@ -104,14 +112,35 @@ function createTaskCard() // TODO ADD PARMS FOR HEADING AND P
 }
 
 
+
+function removeTaskCard(e)
+{
+    e = e || window.event;  
+    e = e.target || e.srcElement;
+
+    let taskCard = e.parentElement.parentElement;
+    console.log(taskCard);
+}
+
+
 function addTaskCard(e)
 {
     e = e || window.event;  
     e = e.target || e.srcElement;
 
+    // Uses id to find the parent for the current column  
+    let parentOfTaskCard  = document.querySelector("#" + e.id).parentNode.parentNode.parentElement;
+    parentOfTaskCard.appendChild(createTaskCard()); 
 
-    let sibblingOfId = document.querySelector("#" + e.id).parentNode.parentNode.parentElement;
-    console.log(sibblingOfId);
 
-    sibblingOfId.appendChild(createTaskCard());
+
+    // Set button function for the new card created. NOTE: most go after task card is created. 
+    let removeBtn = parentOfTaskCard .lastElementChild.lastElementChild.lastElementChild;  // firstElementChild would be edit btn
+    removeBtn.addEventListener('click', removeTaskCard); 
+
 }
+
+
+
+
+
