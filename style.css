@@ -74,20 +74,14 @@ body{
     border: none;
 }
 
+
 @media only screen and (min-width: 400px)
 {
 
     .planner{
         display: grid; 
         grid-template-columns: repeat(7, 250px);
-
-        grid-template-rows: repeat(1, 100vh); 
-        
+        grid-template-rows: repeat(1, minmax(100vh, auto)); 
     }
     
 }
-
-/* // header #1a446b */
-/*#f6f6f9 */
-
-/* btn one
