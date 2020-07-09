@@ -44,7 +44,7 @@ body{
     display: flex; 
     flex-direction: column;
     font-size: 0.8em;
-    background-color: #e6e6e6;
+    background-color: #f6f6f9;
     line-height: 2em;
     align-items: center;
     margin: 0.5em;
@@ -62,13 +62,15 @@ body{
 .remove-btn{
     margin-left: 0.5em;
     border-radius: 5px;
-    background-color: #ff9a9a;
+    background-color: #8bbcef;
+    color: white;
     border: none;
 }
 
 .edit-btn{
     border-radius: 5px;
-    background-color: #a8ffa8;
+    background-color: #4a9fe6;
+    color: white;
     border: none;
 }
 
@@ -84,3 +86,8 @@ body{
     }
     
 }
+
+/* // header #1a446b */
+/*#f6f6f9 */
+
+/* btn one
