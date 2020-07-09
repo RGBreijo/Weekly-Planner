@@ -74,6 +74,9 @@ body{
     border: none;
 }
 
+.remove-btn-selected{
+    display: none;
+}
 
 @media only screen and (min-width: 400px)
 {
