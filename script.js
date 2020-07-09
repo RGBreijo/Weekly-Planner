@@ -9,16 +9,6 @@
         addTaskCardBtn[i].addEventListener('click', addTaskCard);
     }
 
-
-// REMOVE BUTTON 
-
-
-
-
-
-
-
-
  ///////////// ///////////// Creating a task card  ///////////// /////////////
 
 let headingContent = document.createTextNode("HEADING EXAMPLE");
@@ -68,7 +58,9 @@ newTaskCard.appendChild(newTaskButtonContainer);
 
 function createTaskCard() // TODO ADD PARMS FOR HEADING AND P
 {
-    let headingContent = document.createTextNode("HEADING EXAMPLE");
+    let differentValue = (Math.round(Math.random() * 100));
+
+    let headingContent = document.createTextNode("HEADING EXAMPLE " + differentValue);
     let taskMainContent = document.createTextNode("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi amet qui sapiente consequatur, optio adipisci!");
     let taskBtnOneContent = document.createTextNode("Edit");
     let taskBtnTwoContent = document.createTextNode("Remove");
@@ -120,7 +112,9 @@ function removeTaskCard(e)
 
     let taskCard = e.parentElement.parentElement;
     console.log(taskCard);
+    taskCard.classList.add("remove-btn-selected");
 }
+
 
 
 function addTaskCard(e)
