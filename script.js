@@ -1,10 +1,11 @@
 
 
-// Need to do a look that ads an event listener to all the classes then get the ID to add the card. 
-
-let addTaskCardBtn = document.querySelector("#add-mon-card").addEventListener('click', addTaskCard);
-
-
+    let addTaskCardBtn = Array.from(document.querySelectorAll(".add-btn"));
+   
+    for(i = 0; i < addTaskCardBtn.length; i++)
+    {
+        addTaskCardBtn[i].addEventListener('click', addTaskCard);
+    }
 
 
 
@@ -95,8 +96,6 @@ function createTaskCard() // TODO ADD PARMS FOR HEADING AND P
     newTaskButtonContainer.firstChild.appendChild(taskBtnOneContent);
     newTaskButtonContainer.lastChild.appendChild(taskBtnTwoContent);
 
-
-
     newTaskCard.appendChild(headingElement);
     newTaskCard.appendChild(textContent);
     newTaskCard.appendChild(newTaskButtonContainer);
@@ -105,17 +104,14 @@ function createTaskCard() // TODO ADD PARMS FOR HEADING AND P
 }
 
 
-function addTaskCard()
+function addTaskCard(e)
 {
-    let monday = document.querySelector("#monday");
-    monday.appendChild(createTaskCard());
+    e = e || window.event;  
+    e = e.target || e.srcElement;
+
+
+    let sibblingOfId = document.querySelector("#" + e.id).parentNode.parentNode.parentElement;
+    console.log(sibblingOfId);
+
+    sibblingOfId.appendChild(createTaskCard());
 }
-
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////
