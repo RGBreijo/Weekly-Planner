@@ -65,6 +65,7 @@ body{
     background-color: #8bbcef;
     color: white;
     border: none;
+    padding: 0.5em;
 }
 
 .edit-btn{
@@ -72,11 +73,15 @@ body{
     background-color: #4a9fe6;
     color: white;
     border: none;
+    padding: 0.5em;
 }
 
 .remove-btn-selected{
     display: none;
 }
+
+
+
 
 @media only screen and (min-width: 400px)
 {
@@ -86,5 +91,53 @@ body{
         grid-template-columns: repeat(7, 250px);
         grid-template-rows: repeat(1, minmax(100vh, auto)); 
     }
+
+    .edit-task-container{
+        /* background-color: blue; */
+        display: flex;
+        justify-content: center;
+    }
+
+    .edit-task-container form{
+        display: flex; 
+        flex-direction: column;
+        background-color: #eaedf3;
+        padding: 1em;
+        border-radius: 5px;
+    }
+
+    .edit-task-container button:not(:first-child){
+        width: 100px;
+        margin-top: 1em;
+        align-self: flex-end;
+        border-radius: 5px;
+        border: none;
+        padding: 0.5em;
+        background-color: #198ee0;
+        color: white;
+    }
+
+    .edit-task-container input{
+        margin-bottom: 1em;
+    }
+
+    .edit-task-container form label{
+        display: block;
+        align-self: center;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+
+    #close-btn{
+        width: 20px;
+        background-color: #cad1f1;
+        align-self: flex-end;
+        border: none;
+        height: 20px;
+        border-radius: 5px;
+        margin-bottom: 1em;
+    }
+
     
 }
