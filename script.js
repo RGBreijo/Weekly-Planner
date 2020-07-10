@@ -2,13 +2,14 @@
 
 
     let addTaskCardBtn = Array.from(document.querySelectorAll(".add-btn"));
-   
+    let editTaskCardCloseBtn = document.querySelector("#edit-task-close-btn").addEventListener('click', closeEditCard);
+
     for(i = 0; i < addTaskCardBtn.length; i++)
     {
         addTaskCardBtn[i].addEventListener('click', addTaskCard);
     }
 
-    
+
 function createTaskCard() // TODO ADD PARMS FOR HEADING AND P
 {
     let differentValue = (Math.round(Math.random() * 100));
@@ -85,22 +86,72 @@ function addTaskCard(e)
     removeBtn.addEventListener('click', removeTaskCard); 
 
     let editBtn = parentOfTaskCard .lastElementChild.lastElementChild.firstElementChild;  
+
     editBtn.addEventListener('click', editCard); 
+
+
 }
 
 
+// Likely need to create it every time like i did with the card. cloneNode??
 
+
+// when you click on the edit btn 
 function editCard(e)
 {
     e = e || window.event;  
     e = e.target || e.srcElement;
 
-    // Grabs the content from the task edit card 
-    let heading = document.querySelector("#edit-heading");
+    
+    let parentNode = e.parentElement.parentElement;
 
-    // Grabs the h1 path of the task card to be edited 
-    let editTaskHeader = e.parentElement.parentElement.firstChild
+    // Path to the header of the current card 
+    let cardHeader = parentNode.firstChild
 
-    // Changes heading value of the card 
-    editTaskHeader.textContent = heading.value;
+
+    // IF STATEMENT TO CHECK IF AN EDIT CARD FOR THAT SPECIFIC TASK CARD EXIST ALREADY 
+
+
+    // Creates a edit card for the current task card 
+
+    let cardHasEditNode = parentNode.lastChild.classList.contains("edit-task-container");
+
+    if (cardHasEditNode === false)
+    {
+        let newEditCard = document.querySelector(".edit-task-container").cloneNode(true);
+        parentNode.appendChild(newEditCard);
+    }
+
+    // Open edit card 
+
+    let editNodePath = parentNode.lastChild;
+    editNodePath.style.display = 'flex'; 
+
+
+    // Initialize exit for edit card
+
+    let exitBtn = editNodePath.firstElementChild.querySelector(".edit-task-close-btn").addEventListener('click', function(){closeEditCard(editNodePath)});
+    let saveAndExitBtn = editNodePath.firstElementChild.querySelector(".save-and-close").addEventListener('click', function(){saveEditCard(cardHeader, editNodePath)});
+
+ 
 }
+
+
+
+
+
+function saveEditCard(cardHeader, editNodePath)
+{      
+    console.log("here");
+    let heading = editNodePath.firstElementChild.querySelector(".edit-heading");
+
+    cardHeader.textContent = heading.value;
+    closeEditCard(editNodePath);
+}
+
+
+function closeEditCard(editNodePath)
+{
+    editNodePath.style.display = 'none'; 
+}
+
