@@ -93,12 +93,28 @@ body{
     }
 
     .edit-task-container{
-        /* background-color: blue; */
         display: flex;
         justify-content: center;
+
+        position: fixed;
+        width: 100vw; 
+        height: 400px;
+        padding: 1em;
+        padding-top: 100px;
+
+        top: 0;
+        left: 0;
+        right: 0; 
     }
 
-    .edit-task-container form{
+
+    #edit-task-container-remove{
+        display: none;
+
+    }   
+
+
+    .edit-task-container div{
         display: flex; 
         flex-direction: column;
         background-color: #eaedf3;
@@ -121,15 +137,15 @@ body{
         margin-bottom: 1em;
     }
 
-    .edit-task-container form label{
-        display: block;
+    .edit-task-container div label{
+
         align-self: center;
         font-weight: bold;
         margin-bottom: 0.5em;
     }
 
 
-    #close-btn{
+    #edit-task-close-btn{
         width: 20px;
         background-color: #cad1f1;
         align-self: flex-end;
@@ -138,6 +154,18 @@ body{
         border-radius: 5px;
         margin-bottom: 1em;
     }
+
+
+
+
+
+
+   .edit-task-container form{
+       height: 300px;
+
+   }
+
+   
 
     
 }
