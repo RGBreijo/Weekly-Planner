@@ -80,6 +80,81 @@ body{
     display: none;
 }
 
+.edit-task-container{
+    display: flex;
+    justify-content: center;
+
+    position: fixed;
+    width: 100vw; 
+    height: 400px;
+    padding: 1em;
+    padding-top: 100px;
+
+    top: 0;
+    left: 0;
+    right: 0; 
+}
+
+
+#edit-task-container-remove{
+    display: none;
+
+}   
+
+
+.edit-task-container div{
+    display: flex; 
+    flex-direction: column;
+    background-color: #eaedf3;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.edit-task-container button:not(:first-child){
+    width: 100px;
+    margin-top: 1em;
+    align-self: flex-end;
+    border-radius: 5px;
+    border: none;
+    padding: 0.5em;
+    background-color: #198ee0;
+    color: white;
+}
+
+.edit-task-container input{
+    margin-bottom: 1em;
+}
+
+.edit-task-container div label{
+
+    align-self: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+
+#edit-task-close-btn{
+    width: 20px;
+    background-color: #cad1f1;
+    align-self: flex-end;
+    border: none;
+    height: 20px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+.edit-task-container form{
+   height: 300px;
+
+}
+
+
 
 
 
@@ -91,79 +166,6 @@ body{
         grid-template-columns: repeat(7, 250px);
         grid-template-rows: repeat(1, minmax(100vh, auto)); 
     }
-
-    .edit-task-container{
-        display: flex;
-        justify-content: center;
-
-        position: fixed;
-        width: 100vw; 
-        height: 400px;
-        padding: 1em;
-        padding-top: 100px;
-
-        top: 0;
-        left: 0;
-        right: 0; 
-    }
-
-
-    #edit-task-container-remove{
-        display: none;
-
-    }   
-
-
-    .edit-task-container div{
-        display: flex; 
-        flex-direction: column;
-        background-color: #eaedf3;
-        padding: 1em;
-        border-radius: 5px;
-    }
-
-    .edit-task-container button:not(:first-child){
-        width: 100px;
-        margin-top: 1em;
-        align-self: flex-end;
-        border-radius: 5px;
-        border: none;
-        padding: 0.5em;
-        background-color: #198ee0;
-        color: white;
-    }
-
-    .edit-task-container input{
-        margin-bottom: 1em;
-    }
-
-    .edit-task-container div label{
-
-        align-self: center;
-        font-weight: bold;
-        margin-bottom: 0.5em;
-    }
-
-
-    #edit-task-close-btn{
-        width: 20px;
-        background-color: #cad1f1;
-        align-self: flex-end;
-        border: none;
-        height: 20px;
-        border-radius: 5px;
-        margin-bottom: 1em;
-    }
-
-
-
-
-
-
-   .edit-task-container form{
-       height: 300px;
-
-   }
 
    
 
