@@ -14,8 +14,9 @@ function createTaskCard() // TODO ADD PARMS FOR HEADING AND P
 {
     let differentValue = (Math.round(Math.random() * 100));
 
-    let headingContent = document.createTextNode("HEADING EXAMPLE " + differentValue);
-    let taskMainContent = document.createTextNode("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi amet qui sapiente consequatur, optio adipisci!");
+    // let headingContent = document.createTextNode("Heading " + differentValue);
+    let headingContent = document.createTextNode("");
+    let taskMainContent = document.createTextNode("");
     let taskBtnOneContent = document.createTextNode("Edit");
     let taskBtnTwoContent = document.createTextNode("Remove");
 
@@ -106,7 +107,11 @@ function editCard(e)
     let parentNode = e.parentElement.parentElement;
 
     // Path to the header of the current card 
-    let cardHeader = parentNode.firstChild
+    let cardHeader = parentNode.firstChild;
+    let cardContent = parentNode.querySelector('.task-content');
+
+    // console.log(parentNode.querySelector('.task-content'));
+    console.log(cardContent);
 
 
     // IF STATEMENT TO CHECK IF AN EDIT CARD FOR THAT SPECIFIC TASK CARD EXIST ALREADY 
@@ -128,24 +133,24 @@ function editCard(e)
     editNodePath.style.display = 'flex'; 
 
 
-    // Initialize exit for edit card
+    // Initialize buttons for for edit card
 
     let exitBtn = editNodePath.firstElementChild.querySelector(".edit-task-close-btn").addEventListener('click', function(){closeEditCard(editNodePath)});
-    let saveAndExitBtn = editNodePath.firstElementChild.querySelector(".save-and-close").addEventListener('click', function(){saveEditCard(cardHeader, editNodePath)});
+    let saveAndExitBtn = editNodePath.firstElementChild.querySelector(".save-and-close").addEventListener('click', function(){saveEditCard(cardHeader, editNodePath, cardContent)});
 
- 
 }
 
 
 
 
 
-function saveEditCard(cardHeader, editNodePath)
+function saveEditCard(cardHeader, editNodePath, cardContent)
 {      
-    console.log("here");
-    let heading = editNodePath.firstElementChild.querySelector(".edit-heading");
+    let editCardHeading = editNodePath.firstElementChild.querySelector(".edit-heading");
+    let editCardContent= editNodePath.firstElementChild.querySelector("#edit-card-content")
 
-    cardHeader.textContent = heading.value;
+    cardHeader.textContent = editCardHeading.value;
+    cardContent.textContent = editCardContent.value;
     closeEditCard(editNodePath);
 }
 
