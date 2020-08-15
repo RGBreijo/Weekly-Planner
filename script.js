@@ -64,9 +64,9 @@ function createTaskCard() // TODO ADD PARMS FOR HEADING AND P
 function removeTaskCard(e)
 {
     e = e || window.event;  
-    e = e.target || e.srcElement;
+    let target = e.target || e.srcElement;
 
-    let taskCard = e.parentElement.parentElement;
+    let taskCard = target.parentElement.parentElement;
 
     taskCard.classList.add("remove-btn-selected");
 }
@@ -76,10 +76,10 @@ function removeTaskCard(e)
 function addTaskCard(e)
 {
     e = e || window.event;  
-    e = e.target || e.srcElement;
+    let target = e.target || e.srcElement;
 
     // Uses id to find the parent for the current column  
-    let parentOfTaskCard = document.querySelector("#" + e.id).parentNode.parentNode.parentElement;
+    let parentOfTaskCard = document.querySelector("#" + target.id).parentNode.parentNode.parentElement;
     parentOfTaskCard.appendChild(createTaskCard()); 
 
     // Set button function for the new card created. NOTE: most go after task card is created. 
@@ -101,10 +101,10 @@ function addTaskCard(e)
 function editCard(e)
 {
     e = e || window.event;  
-    e = e.target || e.srcElement;
+    let target = e.target || e.srcElement;
 
     
-    let parentNode = e.parentElement.parentElement;
+    let parentNode = target.parentElement.parentElement;
 
     // Path to the header of the current card 
     let cardHeader = parentNode.firstChild;
